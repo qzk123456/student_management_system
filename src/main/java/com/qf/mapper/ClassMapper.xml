@@ -66,4 +66,8 @@
       num = #{num,jdbcType=CHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="getAllClass" resultMap="BaseResultMap">
+    SELECT * FROM class
+  </select>
 </mapper>

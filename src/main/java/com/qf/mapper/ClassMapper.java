@@ -1,8 +1,12 @@
 package com.qf.mapper;
 
+import com.qf.dao.IBaseDao;
 import com.qf.entity.Class;
 
-public interface ClassMapper {
+import java.util.List;
+
+public interface ClassMapper extends IBaseDao<Class>{
+
     int deleteByPrimaryKey(Long id);
 
     int insert(Class record);
@@ -14,4 +18,6 @@ public interface ClassMapper {
     int updateByPrimaryKeySelective(Class record);
 
     int updateByPrimaryKey(Class record);
+    //显示所有班级
+    List<Class> getAllClass();
 }
