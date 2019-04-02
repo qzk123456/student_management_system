@@ -70,4 +70,8 @@
   <select id="getAllClass" resultMap="BaseResultMap">
     SELECT * FROM class
   </select>
+
+  <select id="getClassById" resultMap="BaseResultMap" parameterType="Long">
+    SELECT * FROM class WHERE id = #{id}
+  </select>
 </mapper>

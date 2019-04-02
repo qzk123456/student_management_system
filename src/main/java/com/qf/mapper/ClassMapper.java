@@ -20,4 +20,7 @@ public interface ClassMapper extends IBaseDao<Class>{
     int updateByPrimaryKey(Class record);
     //显示所有班级
     List<Class> getAllClass();
+
+    Class getClassById(Long id);
+
 }

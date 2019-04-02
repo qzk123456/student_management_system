@@ -90,4 +90,8 @@
       class_id = #{classId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="getAllStudents" resultMap="BaseResultMap">
+    SELECT * FROM student
+  </select>
 </mapper>
