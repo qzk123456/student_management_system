@@ -17,9 +17,14 @@
                 type:"POST",
                 url:"class/list",
                 success:function (data) {
-                    var b;
+                    var b="";
+                    var sid = "${student.classId}";
                     for (var i=0; i <data.length; i++) {
-                        b += "<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                        if (data[i].id.toString()==sid) {
+                            b+="<option selected='selected' value='"+data[i].id+"'>"+data[i].name+"</option>"
+                        }else {
+                            b += "<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                        }
                     }
                     $("#classId").append(b);
                 }
@@ -29,12 +34,12 @@
 </head>
 <body>
 <form method="post" action="student/update">
-    <input value="${student.id}" type="hidden" name="id"/>
+    <input value="${student.id}" type="hidden" name="id" id="sid"/>
     学生姓名：<input type="text" name="name" value="${student.name}"/><br/>
     学号：<input type="text" name="num" value="${student.num}"/><br/>
     年龄：<input type="text" name="age" value="${student.age}"/><br/>
+    <input type="hidden" id="xx" value="${student.classId}"/>
     所属班级：<select id="classId" name="classId">
-    <option value="${student.classId}">${student.className}</option>
 </select>
     <input type="submit" value="修改"/>
 </form>
